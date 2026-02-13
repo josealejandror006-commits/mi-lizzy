@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestra Historia 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 2.3em;
+}
+
+.mensaje {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.contador {
+    font-size: 1.3em;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.cancion {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.4s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+.boton {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: white;
+    color: #ff4f81;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<h1>✨ Feliz Día de San Valentín ✨</h1>
+
+<div class="mensaje">
+Feliz día de San Valentín a la mujer que ha hecho que mis días sean más hermosos.  
+Por cada momento a tu lado siento que no quiero que termine el día.  
+Mi amor por ti se intensifica con cada sonrisa que veo en ti;  
+solo con tu presencia haces que mi día sea especial.  
+
+Te amo demasiado, mi chiquita hermosa. 💖
+</div>
+
+<div class="contador">
+Desde el 25 de febrero de 2025 a las 6:05 a.m. ❤️  
+<br><br>
+<span id="tiempo"></span> y contando...
+</div>
+
+<div class="cancion">
+🎶 Nuestra canción: "Amárrame" - Mon Laferte 🎶
+</div>
+
+<button class="boton" onclick="reproducirMusica()">
+❤️ Reproducir nuestra canción ❤️
+</button>
+
+<div class="galeria">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
+    <img src="foto5.jpg">
+    <img src="foto6.jpg">
+</div>
+
+<footer>
+Siempre tú y yo 💌
+</footer>
+
+<audio id="musica" loop>
+    <source src="amarrame.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const inicio = new Date("2025-02-25T06:05:00");
+
+function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = ahora - inicio;
+
+    const segundos = Math.floor(diferencia / 1000);
+    const dias = Math.floor(segundos / (3600*24));
+    const horas = Math.floor((segundos % (3600*24)) / 3600);
+    const minutos = Math.floor((segundos % 3600) / 60);
+    const seg = segundos % 60;
+
+    document.getElementById("tiempo").innerHTML =
+        dias + " días, " +
+        horas + " horas, " +
+        minutos + " minutos, " +
+        seg + " segundos";
+}
+
+setInterval(actualizarContador, 1000);
+
+function reproducirMusica() {
+    document.getElementById("musica").play();
+}
+</script>
+
+</body>
+</html>
